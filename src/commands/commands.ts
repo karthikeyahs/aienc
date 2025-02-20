@@ -14,6 +14,7 @@ Office.onReady(() => {
  * @param event
  */
 function action(event: Office.AddinCommands.Event) {
+  console.log("action called");
   const message: Office.NotificationMessageDetails = {
     type: Office.MailboxEnums.ItemNotificationMessageType.InformationalMessage,
     message: "Performed action.",
@@ -28,5 +29,11 @@ function action(event: Office.AddinCommands.Event) {
   event.completed();
 }
 
+function sendToEncrypt(event: Office.AddinCommands.Event){
+  // call enc api
+  console.log("sendToEncrypt called");
+}
+
 // Register the function with Office.
 Office.actions.associate("action", action);
+Office.actions.associate("sendToEncrypt", sendToEncrypt);
